@@ -1,0 +1,19 @@
+{% extends 'blog/post_base.html' %}
+
+{% block title_block %}
+{{ post.title }}
+{% endblock %}
+
+{% block post_block %}
+  <div class="post">
+  <div class="postbody">
+  <h1>{{ post.title }}</h1>
+    <p>Posted on:
+      <time datetime="{{ post.created|date:'c' }}">
+        {{ post.created|date }}
+      </time>
+    </p>
+    {{ post.body|safe }}
+  </div>
+  </div>
+{% endblock %}

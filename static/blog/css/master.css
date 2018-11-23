@@ -1,0 +1,41 @@
+body {
+    background-color: #CCC7B9;
+}
+
+#nav {
+    background-color: #960200;
+}
+
+.post {
+    background-color: #E8E4D3;
+    box-shadow: 2px 2px 8px;
+}
+
+.postbody {
+    padding: 50px 50px 50px 50px;
+}
+
+.sidebar {
+    background-color: #E8E4D3;
+    padding: 25px 15px 25px 15px;
+    box-shadow: 2px 2px 8px;
+}
+
+.btn-danger {
+    background-color: #A30200;
+    border: none;
+}
+
+pre {
+    background-color: #313440;
+    color: #E2E2E2;
+    padding: 25px 15px 25px 15px;
+    border: 3px solid #BFBFBF;
+}
+
+code {
+    color: #A30200;
+}
+
+
+

@@ -1,0 +1,37 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title_block %}
+Publish Post
+{% endblock %}
+
+{% block body_block %}
+{% if user.is_superuser %}
+  <div class="container">
+    <h2>You're about to release a new post into the wild!</h2>
+    <p>If you're sure you want to publish, click the button below.</p>
+    <p>
+      <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success">Publish post!</button>
+      </form>
+    </p>
+    <p>Here's a preview of what you're about to post:</p>
+  </div>
+
+  <div class="container">
+    <h1>{{ post.title }}</h1>
+    <p>Posted on:
+      <time datetime="{{ post.created|date:'c' }}">
+        {{ post.created|date }}
+      </time>
+    </p>
+    {{ post.body|safe }}
+  </div>
+
+{% else %}
+  <p>You don't have permission to view this page</p>
+{% endif %}
+
+<script src="{% static 'blog/js/posts.js' %}"></script>
+{% endblock %}

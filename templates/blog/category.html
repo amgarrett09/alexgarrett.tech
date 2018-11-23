@@ -1,0 +1,32 @@
+{% extends 'blog/post_base.html' %}
+
+{% block title_block %}
+Posts in '{{ category.title }}'
+{% endblock %}
+
+{% block post_block %}
+<div class="post">
+    <h1>Posts in '{{ category.title }}':</h1>
+</div>
+<br>
+  {% if posts %}
+    {% for post in posts %}
+    <div class="post">
+    <div class="postbody">
+      <h1>{{ post.title }}</h1>
+      <p>Posted on:
+        <time datetime="{{ post.created|date:'c' }}">
+          {{ post.created|date }}
+        </time>
+      </p>
+      {{ post.description|safe }}
+      <p>
+        <a href="{{ post.get_absolute_url }}">
+            <button class="btn btn-danger">Read more</button></a></p>
+    </div>
+    </div>
+    <br>
+    {% endfor %}
+  {% endif %}
+
+{% endblock %}

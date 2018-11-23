@@ -1,0 +1,151 @@
+{% extends 'blog/base.html' %}
+
+{% block title_block %}
+Dashboard
+{% endblock %}
+
+{% block body_block %}
+  {% if user.is_superuser %}
+    <br>
+    <br>
+    <div class="container" align="center">
+      <a href="{% url 'blog-compose' %}">
+        <button type="button" class="btn btn-success">Compose New Post+</button>
+      </a>
+    </div>
+    <br>
+
+    <div class="container" align="center">
+      {% if published_posts %}
+        <h3>Published Posts</h3>
+        <table class="table table-bordered">
+          <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th colspan="2">Actions</th>
+          </tr>
+          {% for post in published_posts %}
+            <tr>
+              <td><a href="{{ post.get_absolute_url }}">{{post.title}}</a></td>
+              <td>
+                <time datetime="{{ post.created|date:'c' }}">
+                  {{ post.created|date }}
+                </time>
+              </td>
+              <td><a href="{{post.get_edit_url}}">Edit</td>
+              <td><a href="{{post.get_absolute_url}}">View</a></td>
+            </tr>
+          {% endfor %}
+          </table>
+
+          {% if published_posts.has_other_pages %}
+            <ul class="pagination">
+              {% if published_posts.has_previous %}
+                <li class="page-item">
+                  <a class="page-link"
+                      href="?postpage={{ published_posts.previous_page_number }}">&laquo;</a>
+                </li>
+              {% else %}
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">&laquo;</a>
+                </li>
+              {% endif %}
+
+              {% for i in published_posts.paginator.page_range %}
+                {% if published_posts.number == i %}
+                  <li class="page-item active">
+                      <a class="page-link" href="#">{{ i }} <span class="sr-only">(current)</span></a>
+                  </li>
+                {% else %}
+                  <li class="page-item">
+                    <a class="page-link" href="?postpage={{ i }}">{{ i }}</a></li>
+                {% endif %}
+              {% endfor %}
+
+              {% if published_posts.has_next %}
+                <li class="page-item">
+                  <a class="page-link"
+                      href="?postpage={{ published_posts.next_page_number }}">&raquo;</a>
+                </li>
+              {% else %}
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">&raquo;</a>
+                </li>
+              {% endif %}
+            </ul>
+          {% endif %}
+      {% else %}
+      {% endif %}
+    </div>
+    <br>
+    <br>
+
+    <div class="container" align="center">
+      {% if drafts %}
+        <h3 id="drafts">Drafts</h3>
+        <table class="table table-bordered">
+          <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th colspan="3">Actions</th>
+          </tr>
+          {% for draft in drafts %}
+            <tr>
+              <td><a href="{{ draft.get_absolute_url }}">{{draft.title}}</a></td>
+              <td>
+                <time datetime="{{ draft.created|date:'c' }}">
+                  {{ draft.created|date }}
+                </time>
+              </td>
+              <td><a href="{{ draft.get_edit_url }}">Edit</a></td>
+              <td><a href="{{ draft.get_absolute_url }}">Preview</a></td>
+              <td><a href="{{ draft.get_publish_url }}">Publish</a></td>
+            </tr>
+          {% endfor %}
+        </table>
+
+        {% if drafts.has_other_pages %}
+          <ul class="pagination">
+            {% if drafts.has_previous %}
+              <li class="page-item">
+                <a class="page-link"
+                    href="?draftpage={{ drafts.previous_page_number }}#drafts">&laquo;</a>
+              </li>
+            {% else %}
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">&laquo;</a>
+              </li>
+            {% endif %}
+
+            {% for i in drafts.paginator.page_range %}
+              {% if drafts.number == i %}
+                <li class="page-item active">
+                  <a class="page-link" href="#">{{ i }} <span class="sr-only">(current)</span></a>
+                </li>
+              {% else %}
+                <li class="page-item">
+                  <a class="page-link" href="?draftpage={{ i }}#drafts">{{ i }}</a></li>
+              {% endif %}
+            {% endfor %}
+
+            {% if drafts.has_next %}
+              <li class="page-item">
+                <a class="page-link"
+                    href="?draftpage={{ drafts.next_page_number }}#drafts">&raquo;</a>
+              </li>
+            {% else %}
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">&raquo;</a>
+              </li>
+            {% endif %}
+          </ul>
+        {% endif %}
+
+      {% else %}
+      {% endif %}
+    </div>
+
+  {% else %}
+    <h2>You need to be logged in to view this page.</h2>
+  {% endif %}
+{% endblock %}
