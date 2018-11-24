@@ -40,4 +40,5 @@ Thumbs.db
 # Sensitive files #
 ###################
 
+static/blog/images
 blog_project/settings.py
