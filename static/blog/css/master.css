@@ -37,5 +37,9 @@ code {
     color: #A30200;
 }
 
+.start-hidden {
+    display: none;
+}
+
 
 

@@ -14,3 +14,5 @@ let images = document.querySelectorAll('img');
 for (let img of images) {
     img.classList = "img-fluid";
 }
+
+$('div.start-hidden').removeClass('start-hidden');
