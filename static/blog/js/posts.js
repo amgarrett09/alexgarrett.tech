@@ -15,4 +15,4 @@ for (let img of images) {
     img.classList = "img-fluid";
 }
 
-$('div.start-hidden').removeClass('start-hidden');
+$('.start-hidden').removeClass('start-hidden');

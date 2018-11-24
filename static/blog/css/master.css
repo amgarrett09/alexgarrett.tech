@@ -38,7 +38,7 @@ code {
 }
 
 .start-hidden {
-    display: none;
+    visibility: hidden;
 }
 
 
