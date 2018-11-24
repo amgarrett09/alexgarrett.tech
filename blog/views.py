@@ -61,7 +61,7 @@ def dashboard(request):
 
 @login_required(login_url='/admin/login/')
 def compose(request):
-    # Controls the a post-composition page
+    # Controls a post-composition page
 
     if request.method == "POST":
         form = PostForm(request.POST)
