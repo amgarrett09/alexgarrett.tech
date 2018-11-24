@@ -5,7 +5,6 @@ from blog.models import Category, Post
 from blog.forms import PostForm
 from blog.utils import html_escape
 from markdownx.utils import markdownify
-from blog.utils import make_responsive_images
 
 # Create your views here.
 
@@ -24,7 +23,6 @@ def post(request, slug):
 
     post = get_object_or_404(Post, slug=slug)
     post.body = markdownify(post.body)
-    post.body = make_responsive_images(post.body)
     categories = Category.objects.all()
     return render(request, 'blog/post.html', {'post': post, 'categories': categories})
 

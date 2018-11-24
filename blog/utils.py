@@ -11,8 +11,8 @@ def html_escape(st):
     """
 
     # Error handling:
-    if type(st) != type("a"):
-        raise TypeError('Input must be a string')
+    if not isinstance(st, str):
+        raise TypeError('html_escape must be called on a string')
 
     # Main logic
     output = (
@@ -23,9 +23,3 @@ def html_escape(st):
     output = amp_expression.sub('&amp;', output)
 
     return output
-
-# Finds a space immediately following the opening of an 'img' tag
-img_class_exp = re.compile(r"(?<=\<img) ", re.IGNORECASE)
-
-def make_responsive_images(st):
-    return img_class_exp.sub(' class="img-fluid" ', st)

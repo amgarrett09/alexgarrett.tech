@@ -8,3 +8,9 @@ mardownify function unfortunately introduces. */
 for (let block of codeBlocks) {
   block.innerHTML = block.innerHTML.replace(re, '&');
 }
+
+let images = document.querySelectorAll('img');
+
+for (let img of images) {
+    img.classList = "img-fluid";
+}
