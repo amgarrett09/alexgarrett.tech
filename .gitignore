@@ -42,3 +42,5 @@ Thumbs.db
 
 static/blog/images
 blog_project/settings.py
+blog/migrations
+blog/__pycache__
