@@ -20,6 +20,8 @@ def index(request):
     )
 
 def post(request, slug):
+    # Displays an idividual post
+
     post = get_object_or_404(Post, slug=slug)
     post.body = markdownify(post.body)
     post.body = make_responsive_images(post.body)
@@ -28,6 +30,8 @@ def post(request, slug):
 
 @login_required(login_url='/admin/login/')
 def dashboard(request):
+    # Displays paginated lists of current posts and drafts
+
     post_list = Post.objects.filter(published=True)
     draft_list = Post.objects.filter(published=False)
     post_page = request.GET.get('postpage', 1)
@@ -57,6 +61,8 @@ def dashboard(request):
 
 @login_required(login_url='/admin/login/')
 def compose(request):
+    # Controls the a post-composition page
+
     if request.method == "POST":
         form = PostForm(request.POST)
 
@@ -87,6 +93,8 @@ def compose(request):
 
 @login_required(login_url='/admin/login/')
 def edit(request, slug):
+    # Controls a page for editing posts
+
     post = get_object_or_404(Post, slug=slug)
 
     if request.method == "POST":
@@ -117,6 +125,8 @@ def edit(request, slug):
 
 @login_required(login_url='/admin/login/')
 def publish(request, slug):
+    # Shows a preview of a post and asks user to confirm publishing
+
     post = get_object_or_404(Post, slug=slug)
 
     if request.method == "POST":
@@ -127,6 +137,8 @@ def publish(request, slug):
         return render(request, 'blog/publish.html', {'post': post})
 
 def category(request, category):
+    # Displays all posts in a given gategory
+
     category = get_object_or_404(Category, slug=category)
     posts = category.post.filter(published=True)
 
