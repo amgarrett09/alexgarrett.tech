@@ -3,11 +3,9 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.contrib.auth.decorators import login_required
 from blog.models import Category, Post
 from blog.forms import PostForm
-import bleach
 from markdownx.utils import markdownify
 from blog.utils import highlight_text
-
-# Create your views here.
+from blog.utils import html_escape
 
 def index(request):
     posts = Post.objects.filter(published=True)
@@ -70,9 +68,9 @@ def compose(request):
 
             # html escaping
             body = form.cleaned_data['body']
-            body = bleach.clean(body)
+            body = html_escape(body)
             description = form.cleaned_data['description']
-            description = bleach.clean(description)
+            description = html_escape(description)
 
             post = Post(
                         title=title, slug=slug,
@@ -103,9 +101,9 @@ def edit(request, slug):
 
             # html escaping
             body = form.cleaned_data['body']
-            body = bleach.clean(body)
+            body = html_escape(body)
             description = form.cleaned_data['description']
-            description = bleach.clean(description)
+            description = html_escape(description)
 
             post.title = title
             post.category = category
