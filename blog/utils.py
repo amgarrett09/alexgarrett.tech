@@ -55,10 +55,11 @@ def highlight_with_regex(text, regex, desc):
 
     format_string = regex.sub("{}", text)
     matches = regex.findall(text)
-    wrapped = map(lambda x: span + x + "</span>", matches)
+    wrapped_words = map(lambda x: span + x + "</span>", matches)
 
-    output = reduce(lambda acc,word: acc.replace("{}", word, 1), wrapped, format_string)
+    output = reduce(lambda acc,word: acc.replace("{}", word, 1), wrapped_words, format_string)
     return output
+
 
 def html_escape(text):
     output = bleach.clean(text)
