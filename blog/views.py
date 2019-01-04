@@ -7,18 +7,20 @@ from markdownx.utils import markdownify
 from blog.utils import highlight_text
 from blog.utils import html_escape
 
+def home(request):
+    return render(request, 'blog/home.html')
+
 def index(request):
     posts = Post.objects.filter(published=True)
     for post in posts:
         post.description = markdownify(post.description)
     categories = Category.objects.all()
     return render(
-        request, 'blog/index.html',
+        request, 'blog/blog_index.html',
         {'posts': posts, 'categories': categories}
     )
 
 def post(request, slug):
-
     post = get_object_or_404(Post, slug=slug)
     post.body = markdownify(post.body)
     post.body = highlight_text(post.body)
@@ -27,7 +29,6 @@ def post(request, slug):
 
 @login_required(login_url='/admin/login/')
 def dashboard(request):
-
     post_list = Post.objects.filter(published=True)
     draft_list = Post.objects.filter(published=False)
     post_page = request.GET.get('postpage', 1)
@@ -57,7 +58,6 @@ def dashboard(request):
 
 @login_required(login_url='/admin/login/')
 def compose(request):
-
     if request.method == "POST":
         form = PostForm(request.POST)
 
@@ -88,7 +88,6 @@ def compose(request):
 
 @login_required(login_url='/admin/login/')
 def edit(request, slug):
-
     post = get_object_or_404(Post, slug=slug)
 
     if request.method == "POST":
@@ -119,7 +118,6 @@ def edit(request, slug):
 
 @login_required(login_url='/admin/login/')
 def publish(request, slug):
-
     post = get_object_or_404(Post, slug=slug)
 
     if request.method == "POST":
@@ -130,7 +128,6 @@ def publish(request, slug):
         return render(request, 'blog/publish.html', {'post': post})
 
 def category(request, category):
-
     category = get_object_or_404(Category, slug=category)
     posts = category.post.filter(published=True)
 

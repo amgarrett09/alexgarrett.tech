@@ -18,6 +18,7 @@ from django.urls import path
 from blog import views
 
 urlpatterns = [
+    path('', views.index, name='blog-index'),
     path('article/<slug:slug>/', views.post, name='blog-post'),
     path('dashboard/', views.dashboard, name='blog-dashboard'),
     path('compose/', views.compose, name='blog-compose'),
