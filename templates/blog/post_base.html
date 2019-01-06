@@ -1,57 +1,59 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>
-      {% block title_block %}
-      {% endblock %}
+        {% block title_block %}
+        {% endblock %}
     </title>
     {% load static %}
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'blog/css/master.css' %}">
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" id="nav">
-      <a class="navbar-brand" href="{% url 'home' %}">Alex Garrett</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse"
-          data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-          aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
-          {% if user.is_superuser %}
-            <a class="nav-item nav-link" href="{% url 'blog-dashboard' %}">Dashboard</a>
-          {% endif %}
-        </div>
-      </div>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'blog/css/posts.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Alex Garrett</h1>
+        <h2>Blog</h2>
+    </header>
+    <nav>
+        <a href="{% url 'home' %}" class="navlink">Home</a>
+        <a href="{% url 'blog-index' %}" class="navlink">Blog</a>
+        {% if user.is_superuser %}
+            <a href="{%url 'blog-dashboard' %}" class="navlink">Dashboard</a>
+        {% endif %}
     </nav>
     <br>
-    {% block body_block%}
-    {% endblock %}
+    <br>
     <div class="container start-hidden">
-    <div class="row">
-      <div class="col-12 col-lg-9">
-        {% block post_block %}
-        {% endblock %}
-        <br>
-      </div>
-
-      <div class="col-12 col-lg-3">
-        <div class="sidebar">
-          <h4>Categories:</h4>
-          {% for category in categories %}
-            <p><a href="{{ category.get_absolute_url }}">{{ category.title }}</a> ({{ category.count_posts }})</p>
-          {% endfor %}
+        <div class="articles">
+            {% block article_block %}
+            {% endblock %}
         </div>
-      </div>
+        <div class="sidebar">
+            <div class="about">
+                <h1>About</h1>
+                I'm Alex Garrett, a full stack web developer from Michigan.
+                <h2>Links</h2>
+                <p><a href="#">Portfolio</a></p>
+                <p><a href="#">Email</a></p>
+                <p><a href="#">Github</a></p>
+            </div>
+            <div class="categories">
+                <h1>Categories</h1>
+                {% if categories %}
+                    {% for category in categories %}
+                        <p><a href="{{ category.get_absolute_url  }}">{{  category.title }}</a></p>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
     </div>
-  </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <footer class="start-hidden">
+        <br>
+        <p>&copy;2019 Alex Garrett</p>
+    </footer>
     <script src="{% static 'blog/js/posts.js' %}"></script>
-  </body>
-
+</body>
 </html>

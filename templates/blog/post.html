@@ -1,12 +1,11 @@
 {% extends 'blog/post_base.html' %}
 
 {% block title_block %}
-{{ post.title }}
+{{ post.title }} - Alex Garrett
 {% endblock %}
 
-{% block post_block %}
-  <div class="post">
-  <div class="postbody">
+{% block article_block %}
+  <article>
   <h1>{{ post.title }}</h1>
     <p>Posted on:
       <time datetime="{{ post.created|date:'c' }}">
@@ -14,6 +13,5 @@
       </time>
     </p>
     {{ post.body|safe }}
-  </div>
-  </div>
+  </article>
 {% endblock %}

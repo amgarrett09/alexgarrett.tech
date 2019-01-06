@@ -1,18 +1,16 @@
 {% extends 'blog/post_base.html' %}
 
 {% block title_block %}
-Posts in '{{ category.title }}'
+Posts in '{{ category.title }}' - Alex Garrett
 {% endblock %}
 
-{% block post_block %}
-<div class="post">
+{% block article_block %}
+<article>
     <h1>Posts in '{{ category.title }}':</h1>
-</div>
-<br>
-  {% if posts %}
+</article>
+{% if posts %}
     {% for post in posts %}
-    <div class="post">
-    <div class="postbody">
+    <article>
       <h1>{{ post.title }}</h1>
       <p>Posted on:
         <time datetime="{{ post.created|date:'c' }}">
@@ -22,9 +20,8 @@ Posts in '{{ category.title }}'
       {{ post.description|safe }}
       <p>
         <a href="{{ post.get_absolute_url }}">
-            <button class="btn btn-danger">Read more</button></a></p>
-    </div>
-    </div>
+            <button class="readmore">Read more</button></a></p>
+    </article>
     <br>
     {% endfor %}
   {% endif %}
