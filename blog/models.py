@@ -3,8 +3,6 @@ from django.urls import reverse
 from django.utils import timezone
 from markdownx.models import MarkdownxField
 
-# Create your models here.
-
 class Category(models.Model):
     title = models.CharField(max_length=128, unique=True)
     slug = models.SlugField(max_length=128, unique=True)
