@@ -1,5 +1,9 @@
+html {
+    font-size: 62.5%;
+}
 body {
     margin: 0;
+    background-color: hsl(0, 0%, 20%);
 }
 img {
     max-width: 100%;
@@ -15,14 +19,14 @@ nav {
     top: 0;
     width: 100vw;
     height: 35px;
-    z-index: 100;
+    z-index: 150;
 }
 .navlink {
     color: hsl(0, 0%, 95%);
     margin: 7px;
     text-decoration: none;
     font-family: 'Raleway', sans-serif;
-    font-size: 1.5em;
+    font-size: 2.5rem;
 }
 .navlink:hover {
     color: hsl(150, 64%, 55%);
@@ -54,19 +58,20 @@ header > h1 {
     margin: 0;
     top: 30%;
     text-shadow: 3px 3px rgba(0,0,0,0.2);
-    font-size: 4.0em;
+    font-size: 6.0em;
 }
 header > h2 {
     position: relative;
     margin: 0;
-    top: 32%;
+    top: 30%;
     text-shadow: 2px 2px rgba(0,0,0,0.2);
+    font-size: 2.0rem;
 }
 .learnmore {
     position: relative;
-    top: 35vh;
+    top: 33vh;
     font-family: 'Poppins', sans-serif;
-    font-size: 1.2em;
+    font-size: 1.7rem;
     background-color: hsla(150, 64%, 45%,0);
     color: hsl(0, 95%, 100%);
     text-shadow: 2px 2px rgba(0,0,0,0.2);
@@ -98,19 +103,16 @@ section {
 }
 .about > h1 {
     margin: 0 0 0 10vw;
-    font-size: 3.0em;
+    font-size: 4.5rem;
 }
 .about > h2 {
     margin: 0 0 0 10vw;
-    font-size: 2.0em;
-}
-.about > h3 {
-    font-size: 1.3em;
+    font-size: 3.0rem;
 }
 .about > p {
     margin: 0 10vw 0 30vw;
     padding: 0.5em;
-    font-size: 1.3em;
+    font-size: 2.0rem;
     text-align: justify;
 }
 .greenstrong {
@@ -130,10 +132,12 @@ section {
     border: 3px solid hsl(150, 64%, 45%);
     border-radius: 10px;
     width: 125px;
+    font-size: 1.5rem;
 }
 .skillbox > h3 {
     text-align: center;
     font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
 }
 
 /* projects section */
@@ -152,7 +156,7 @@ section {
 }
 .projects > h1 {
     margin: 0 0 0 10vw;
-    font-size: 3.0em;
+    font-size: 4.5rem;
 }
 .projectbox {
     background-color: hsl(0, 0%, 95%);
@@ -163,7 +167,10 @@ section {
     padding: 5px 20px 5px 20px;
 }
 .projectbox > p {
-    font-size: 0.9em;
+    font-size: 1.4rem;
+}
+.projectbox > h3 {
+    font-size: 2.0rem;
 }
 .projectimage {
     background-color: hsl(0, 0%, 100%);
@@ -171,7 +178,7 @@ section {
     padding: 5px;
     border: 1px solid hsl(0, 0%, 70%);
 }
-.viewproject {
+.viewproject, .projectdetail {
     width: 100px;
     background-color: transparent;
     border: 3px solid hsl(150, 64%, 45%);
@@ -180,7 +187,7 @@ section {
     color: hsl(150, 64%, 40%);
     font-family: 'Poppins', sans-serif;
 }
-.viewproject:hover {
+.viewproject:hover, .projectdetail:hover {
     animation: viewprojecthover 0.2s ease;
     animation-fill-mode: forwards;
 }
@@ -208,11 +215,37 @@ section {
 }
 .contact > p {
     margin: 0;
-    padding: 0.3em;
+    font-size: 1.4rem;
+    padding: 0.5rem;
 }
 .contact > h1 {
     margin: 0;
-    font-size: 2.0em;
+    font-size: 3.0rem;
+}
+
+/* popups */
+.project-popup {
+    position: fixed;
+    top: 40px;
+    left: 18vw;
+    z-index: 100;
+    width: 60vw;
+    max-height: 90%;
+    overflow: auto;
+    background-color: hsl(0, 0%, 95%);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    font-family: 'Railway', sans-serif;
+    font-size: 1.7rem;
+    padding: 5px 20px 5px 20px;
+}
+.pop-disabled {
+    display: none;
+    pointer-events: none;
+}
+.close-popup {
+    text-decoration: none;
+    color: hsl(150, 68%, 40%);
 }
 
 /* media queries */
@@ -221,9 +254,6 @@ section {
         font-size: 1.1em;
         text-align: left;
     }
-}
-
-@media (max-width: 560px) {
     .skills, .project-display {
         flex-direction: column;
         align-items: center;
@@ -232,4 +262,9 @@ section {
         width: 200px;
         margin: 10px 0 10px 0;
     }
+    .project-popup {
+        left: 5vw;
+        width: 80vw;
+    }
 }
+

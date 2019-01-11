@@ -33,6 +33,8 @@
             code that is <strong class="greenstrong">clear</strong>,
             <strong class="greenstrong">concise</strong>, and
             <strong class="greenstrong">correct</strong>.
+            I'm highly self-motivated, and I'm always learning something new.
+            See what I have to offer below!
         </p>
         <br>
         <h2>Skills</h2>
@@ -42,7 +44,7 @@
                 <h3>Front End</h3>
                 <p><strong>HTML5</strong></p>
                 <p><strong>CSS3</strong></p>
-                <p><strong>ES6+ Javascript</strong></p>
+                <p><strong>ES6+ JavaScript</strong></p>
             </div>
             <div class="skillbox">
                 <h3>Back End</h3>
@@ -68,18 +70,19 @@
             <div class="projectbox">
                 <div class="projectimage">
                 <a target="_blank" href="{% url 'blog-index' %}">
-                <img src="/static/blog/images/projects/blog_thumbnail.png">
+                <img src="/static/blog/images/projects/blog_thumbnail.png"
+                    alt="Blog thumbnail">
                 </a>
                 </div>
-                <h3>Django Blog</h3>
+                <h3>alexgarrett.tech</h3>
                 <p>My personal website, built with Python and Django.
                     Includes CRUD functionality and interaction with a
                     SQL database.
                 </p>
                 <div style="text-align:center">
-                    <a target="_blank" href="{% url 'blog-index' %}">
-                        <button class="viewproject"><strong>View</strong></button>
-                    </a>
+                        <button class="projectdetail" id="django-blog-button">
+                            <strong>Learn More</strong>
+                        </button>
                 </div>
             </div>
         </div>
@@ -93,5 +96,38 @@
         <br>
         <p>&copy; 2019 Alex Garrett</p>
     </section>
+    <div class="project-popup pop-disabled" id="django-blog-popup">
+        <div style="text-align: right">
+            <a href="" class="close-popup">Close</a>
+        </div>
+        <h1>alexgarrett.tech</h1>
+        <p>
+            <strong>Challenge</strong>: I needed a web-site and a blog to showcase the projects
+            I'm working on. The blog app needed to allow me to easily
+            create, edit, and publish posts, all while having good security.
+        </p>
+        <p>
+            <strong>Solution</strong>: I built a blog app from the ground up with the help of
+            the Django web framework. I learned about MVC-style web development,
+            writing models to handle database entries, and using Python functions
+            to serve the content to the user. I implemented forms for post-creation
+            that have Markdown support, and on the back-end there is robust validation
+            and HTML-escaping to prevent cross-site scripting and similar attacks.
+        </p>
+        <p>
+            <strong>Result</strong>: The blog on alexgarrett.tech is fast and reliable application
+            that has exactly the features I need without bloat. Additionally,
+            the app is secure, preventing XSS and CSRF attacks. In the process
+            of building it I also became quite familiar with Django and Python.
+        </p>
+        <div style="text-align:center">
+            <a target="_blank" href="{% url 'blog-index' %}">
+                <button class="viewproject"><strong>View Site</strong></button>
+            </a>
+        </div>
+        <br>
+        <br>
+    </div>
+    <script src="{% static 'blog/js/home.js' %}"></script>
 </body>
 </html>
