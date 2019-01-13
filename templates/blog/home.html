@@ -17,11 +17,15 @@
         <a href="#contact" class="navlink">Contact</a>
     </nav>
     <header>
-        <h1>Alex Garrett</h1>
-        <h2>Full stack web developer</h2>
-        <a href="#about">
-            <button class="learnmore" accesskey="s"><strong>See my work</strong></button>
-        </a>
+        <div class="header-text">
+           <h1>Alex Garrett</h1>
+            <h2>Full stack web developer</h2>
+            <br>
+            <a href="#about" accesskey="s">
+                <button class="learnmore"><strong>See my work</strong></button>
+            </a>
+        </div>
+
     </header>
     <section class="about" id="about">
         <br>
@@ -69,10 +73,8 @@
         <div class="project-display">
             <div class="projectbox">
                 <div class="projectimage">
-                <a target="_blank" href="{% url 'blog-index' %}">
-                <img src="/static/blog/images/projects/blog_thumbnail.png"
-                    alt="Blog thumbnail">
-                </a>
+                    <img src="/static/blog/images/projects/blog_thumbnail.png"
+                        alt="Blog thumbnail">
                 </div>
                 <h3>alexgarrett.tech</h3>
                 <p>My personal website, built with Python and Django.
@@ -91,7 +93,7 @@
     </section>
     <section class="contact" id="contact">
         <h1>Contact</h1>
-        <p><a href="#" class="contactlink">Email</a></p>
+        <p><a href="mailto:alex@alexgarrett.tech" class="contactlink">Email</a></p>
         <p><a target="_blank" href="https://github.com/amgarrett09" class="contactlink">Github</a></p>
         <br>
         <p>&copy; 2019 Alex Garrett</p>
