@@ -1,9 +1,8 @@
 # django-blog
 
-This is a blog app I wrote for the Django web framework. This repository is
-missing some files that either contain sensitive info or are not really
-relevant, but pretty much all of my own code is here.
+This is the source code for my personal website, which includes a portfolio page,
+and a blog application which I use to write about the projects I'm working on.
 
-You can view it live here: https://amgarrett09.pythonanywhere.com/
+The site is built in Django and Python, and includes basic CRUD functionality.
 
-I use the site to post updates on coding projects I'm working on.
+[You can view the live site here](https://www.alexgarrett.tech)

@@ -44,3 +44,4 @@ static/blog/images
 blog_project/settings.py
 blog/migrations
 blog/__pycache__
+blog_project/__pycache__
