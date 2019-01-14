@@ -10,7 +10,7 @@ buttons.forEach((button) => {
         const buttonId = this.id;
         const popupId = popupDict[buttonId];
         const popup = document.getElementById(popupId);
-        popup.classList.toggle("pop-disabled")
+        popup.classList.toggle("pop-disabled");
         popup.classList.toggle("active-popup");
     });
 });
@@ -24,3 +24,15 @@ closelinks.forEach((link) => {
         activePopup.classList.toggle("pop-disabled");
     })
 })
+
+// Smooth scrolling
+const links = document.querySelectorAll("a");
+links.forEach(link => {
+    if (link.hash) {
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
+            document.querySelector(this.hash)
+                .scrollIntoView({behavior: 'smooth'});
+        });
+    }
+});

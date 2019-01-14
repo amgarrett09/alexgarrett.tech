@@ -243,6 +243,19 @@ section {
     display: none;
     pointer-events: none;
 }
+.active-popup {
+    animation: popup-fadein 0.15s linear;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+@keyframes popup-fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100;
+    }
+}
 .close-popup {
     text-decoration: none;
     color: hsl(150, 68%, 40%);
