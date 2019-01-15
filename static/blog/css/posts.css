@@ -124,6 +124,22 @@ article > h1 {
     border: 3px solid hsl(150, 64%, 45%);
 }
 
+.pagination {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "previous" "next";
+    margin-bottom: 20px;
+}
+.previous-page {
+    text-align: left;
+    grid-area: "previous";
+}
+.next-page {
+    text-align: right;
+    grid-area: "next";
+}
+
 footer {
     background-color: hsl(0, 0%, 20%);
     color: hsl(0, 0%, 95%);

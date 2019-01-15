@@ -25,4 +25,20 @@ Alex Garrett - Blog
   {% else %}
     <h3>There are no posts</h3>
   {% endif %}
+  {% if posts.has_other_pages %}
+    <div class="pagination">
+        <span class="previous-page">
+            {% if posts.has_previous %}
+                <a href="?page={{ posts.previous_page_number }}" class="previous-page">
+                Previous</a>
+            {% endif %}
+        </span>
+        <span class="next-page">
+            {% if posts.has_next %}
+                <a href="?page={{ posts.next_page_number }}">
+                    Next</a>
+            {% endif %}
+        </span>
+    </div>
+  {% endif %}
 {% endblock %}

@@ -11,10 +11,23 @@ def home(request):
     return render(request, 'blog/home.html')
 
 def index(request):
-    posts = Post.objects.filter(published=True)
+    post_list = Post.objects.filter(published=True)
+    categories = Category.objects.all()
+
+    # Pagination
+    paginator = Paginator(post_list, 10)
+    page = request.GET.get('page', 1)
+
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+
     for post in posts:
         post.description = markdownify(post.description)
-    categories = Category.objects.all()
+
     return render(
         request, 'blog/blog_index.html',
         {'posts': posts, 'categories': categories}

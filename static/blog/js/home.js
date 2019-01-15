@@ -1,14 +1,13 @@
 const popupDict = {"django-blog-button": "django-blog-popup"};
 
-const buttons = document.querySelectorAll(".projectdetail");
+const projectButtons = document.querySelectorAll(".projectdetail");
 
 const closelinks = document.querySelectorAll(".close-popup");
 
-// Setting up project buttons to display popups
-buttons.forEach((button) => {
+// Setting up buttons to display detail about projects
+projectButtons.forEach((button) => {
     button.addEventListener("click", function() {
-        const buttonId = this.id;
-        const popupId = popupDict[buttonId];
+        const popupId = popupDict[this.id];
         const popup = document.getElementById(popupId);
         popup.classList.toggle("pop-disabled");
         popup.classList.toggle("active-popup");
