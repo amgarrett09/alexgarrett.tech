@@ -1,4 +1,4 @@
-# django-blog
+# alexgarrett.tech
 
 This is the source code for my personal website, which includes a portfolio page,
 and a blog application which I use to write about the projects I'm working on.
