@@ -4,7 +4,7 @@ import re
 from functools import reduce
 import bleach
 
-RE_FUNCTION = re.compile(r'\b([a-z]+[a-zA-Z_]*)(?=\()', re.M)
+RE_FUNCTION = re.compile(r'\b([a-z_]+[a-zA-Z_]*)(?=\()', re.M)
 RE_COMMENT = re.compile(r'((?<!\S)(?:\/\/|#).+)', re.M)
 RE_STRING_SINGLE = re.compile(r'(?:&#39;).*?(?:&#39;)', re.M)
 RE_STRING_DOUBLE = re.compile(r'(?:&quot;).*?(?:quot;)', re.M)
