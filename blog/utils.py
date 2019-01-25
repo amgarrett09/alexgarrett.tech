@@ -9,13 +9,15 @@ RE_COMMENT = re.compile(r'((?<!\S)(?:\/\/|#).+)', re.M)
 RE_STRING_SINGLE = re.compile(r'(?:&#39;).*?(?:&#39;)', re.M)
 RE_STRING_DOUBLE = re.compile(r'(?:&quot;).*?(?:quot;)', re.M)
 
-KEYWORDS = [
-    'def ', 'function ', 'fn ', '=&gt;', 'import ', 'from ', 'let ', 'mut ',
-    'const ', 'var ', 'lambda ', 'pub ', 'use ',
-]
-CONTROL_WORDS = [
-    'return ', 'if ', 'elif ', 'else ', 'else if',  'while ',
-    'for ', 'loop', 'await ', 'try ', 'in '
+RE_KEYWORDS = re.compile(r'\b(def |function |fn |=&gt; |import |from |let |mut |const |var |lambda |pub |use )', re.M)
+RE_CONTROL_WORDS = re.compile(r'\b(return |if |elif |else |else if |while |for |loop |await |try |in )', re.M)
+
+# Pairs of regex and descriptions which will be used in the
+#'highlight_with_regex' function
+REGEX_LIST = [
+    (RE_FUNCTION, 'function'), (RE_COMMENT, 'comment'),
+    (RE_STRING_SINGLE, 'string'), (RE_STRING_DOUBLE, 'string'),
+    (RE_KEYWORDS, 'keyword'), (RE_CONTROL_WORDS, 'control')
 ]
 
 def highlight_text(st):
@@ -25,25 +27,9 @@ def highlight_text(st):
         output = block.text
         output = output.replace("{}", "&#123;&#125;")
 
-        # Highlight comments
-        output = highlight_with_regex(output, RE_COMMENT, 'comment')
-
-        # Highlight strings
-        output = highlight_with_regex(output, RE_STRING_SINGLE, 'string')
-        output = highlight_with_regex(output, RE_STRING_DOUBLE, 'string')
-
-        # Highlight functions
-        output = highlight_with_regex(output, RE_FUNCTION, 'function')
-
-        # Highlight keywords
-        for word in KEYWORDS:
-            new = '<span class="code-keyword">' + word + '</span>'
-            output = output.replace(word, new)
-
-        # Highlight control flow words (like 'if' or 'for')
-        for word in CONTROL_WORDS:
-            new = '<span class="code-control">' + word + '</span>'
-            output = output.replace(word, new)
+        # highlight keywords with regular expressions in REGEX_LIST
+        for e in REGEX_LIST:
+            output = highlight_with_regex(output, e[0], e[1])
 
         block.text = etree.CDATA(output)
 
