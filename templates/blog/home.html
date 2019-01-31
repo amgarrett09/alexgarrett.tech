@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway" rel="stylesheet">
 </head>
 <body>
+    <a href="#content" class="skip-to-content" tabindex="0">Skip to Content</a>
     <nav>
         <a href="#about" class="navlink">About</a>
         <a href="#work" class="navlink">Work</a>
@@ -21,86 +22,89 @@
            <h1>Alex Garrett</h1>
             <h2>Full stack web developer</h2>
             <br>
-            <a href="#about" accesskey="s">
-                <button class="learnmore"><strong>See my work</strong></button>
+            <a href="#about" accesskey="s" class="learnmore">
+                <strong>See my work</strong>
             </a>
         </div>
 
     </header>
-    <section class="about" id="about">
-        <br>
-        <br>
-        <h1>About</h1>
-        <p>Hi there, I'm <strong class="greenstrong">Alex Garrett</strong>, a
-            full stack web developer from Michigan. I'm passionte about
-            building secure and performant web services, and I prioritize writing
-            code that is <strong class="greenstrong">clear</strong>,
-            <strong class="greenstrong">concise</strong>, and
-            <strong class="greenstrong">correct</strong>.
-            I'm highly self-motivated, and I'm always learning something new.
-            See what I have to offer below!
-        </p>
-        <br>
-        <h2>Skills</h2>
-        <br>
-        <div class="skills">
-            <div class="skillbox">
-                <h3>Front End</h3>
-                <p><strong>HTML5</strong></p>
-                <p><strong>CSS3</strong></p>
-                <p><strong>ES6+ JavaScript</strong></p>
-            </div>
-            <div class="skillbox">
-                <h3>Back End</h3>
-                <p><strong>Django</strong></p>
-                <p><strong>Node / Express</strong></p>
-                <p><strong>SQL</strong></p>
-            </div>
-            <div class="skillbox">
-                    <h3>Specialties</h3>
-                    <p><strong>Functional programming</strong></p>
-                    <p><strong>Writing documentation</strong></p>
+    <main id="content">
+            <section class="about" id="about">
+            <br>
+            <br>
+            <h1>About</h1>
+            <p>Hi there, I'm <strong class="greenstrong">Alex Garrett</strong>, a
+                full stack web developer from Michigan. I'm passionte about
+                building secure and performant web services, and I prioritize writing
+                code that is <strong class="greenstrong">clear</strong>,
+                <strong class="greenstrong">concise</strong>, and
+                <strong class="greenstrong">correct</strong>.
+                I'm highly self-motivated, and I'm always learning something new.
+                See what I have to offer below!
+            </p>
+            <br>
+            <h2>Skills</h2>
+            <br>
+            <div class="skills">
+                <div class="skillbox">
+                    <h3>Front End</h3>
+                    <p><strong>HTML5</strong></p>
+                    <p><strong>CSS3</strong></p>
+                    <p><strong>ES6+ JavaScript</strong></p>
                 </div>
-        </div>
-        <br>
-        <br>
-    </section>
-    <section class="projects" id="work">
-        <br>
-        <br>
-        <h1>Projects</h1>
-        <br>
-        <div class="project-display">
-            <div class="projectbox">
-                <div class="projectimage">
-                    <img src="/static/blog/images/projects/blog_thumbnail.png"
-                        alt="Blog thumbnail">
+                <div class="skillbox">
+                    <h3>Back End</h3>
+                    <p><strong>Django</strong></p>
+                    <p><strong>Node / Express</strong></p>
+                    <p><strong>SQL</strong></p>
                 </div>
-                <h3>alexgarrett.tech</h3>
-                <p>My personal website, built with Python and Django.
-                    Includes CRUD functionality and interaction with a
-                    SQL database.
-                </p>
-                <div style="text-align:center">
-                        <button class="projectdetail" id="django-blog-button">
-                            <strong>Learn More</strong>
-                        </button>
+                <div class="skillbox">
+                        <h3>Specialties</h3>
+                        <p><strong>Functional programming</strong></p>
+                        <p><strong>Writing documentation</strong></p>
+                    </div>
+            </div>
+            <br>
+            <br>
+        </section>
+        <section class="projects" id="work">
+            <br>
+            <br>
+            <h1>Projects</h1>
+            <br>
+            <div class="project-display">
+                <div class="projectbox">
+                    <div class="projectimage">
+                        <img src="/static/blog/images/projects/blog_thumbnail.png"
+                            alt="Blog thumbnail">
+                    </div>
+                    <h3>alexgarrett.tech</h3>
+                    <p>My personal website, built with Python and Django.
+                        Includes CRUD functionality and interaction with a
+                        SQL database.
+                    </p>
+                    <div style="text-align:center">
+                            <button aria-haspopup="true" class="projectdetail" id="django-blog-button">
+                                <strong>Learn More</strong>
+                            </button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <br>
-        <br>
-    </section>
-    <section class="contact" id="contact">
-        <h1>Contact</h1>
-        <p><a href="mailto:alex@alexgarrett.tech" class="contactlink">Email</a></p>
-        <p><a target="_blank" href="https://github.com/amgarrett09" class="contactlink">Github</a></p>
-        <br>
-        <p>&copy; 2018-2019 Alex Garrett</p>
-    </section>
-    <div class="project-popup pop-disabled" id="django-blog-popup">
+            <br>
+            <br>
+        </section>
+        <section class="contact" id="contact">
+            <h1>Contact</h1>
+            <p><a href="mailto:alex@alexgarrett.tech" class="contactlink">Email</a></p>
+            <p><a target="_blank" href="https://github.com/amgarrett09" class="contactlink">Github</a></p>
+            <br>
+            <p>&copy; 2018-2019 Alex Garrett</p>
+        </section>
+    </main>
+
+    <div class="project-popup pop-disabled" aria-hidden="true" id="django-blog-popup">
         <div style="text-align: right">
-            <a href="" class="close-popup">Close</a>
+            <button class="close-popup">Close</button>
         </div>
         <h1>alexgarrett.tech</h1>
         <p>

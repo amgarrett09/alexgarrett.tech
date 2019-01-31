@@ -5,6 +5,26 @@ body {
     margin: 0;
     background-color: hsl(0, 0%, 20%);
 }
+.skip-to-content {
+    position: fixed;
+    top: -40px;
+    background-color: white;
+    color: black;
+    text-decoration: underline;
+    padding: 10px;
+    font-size: 1.4rem;
+    z-index: 200;
+}
+.skip-to-content:focus {
+    animation: content-skip-dropdown 0.2s linear;
+    animation-fill-mode: forwards;
+}
+@keyframes content-skip-dropdown {
+    100% {
+        top: 0;
+    }
+}
+
 img {
     max-width: 100%;
     display: block;
@@ -78,6 +98,7 @@ header {
     padding: 5px 10px 5px 10px;
     border: 2px solid hsl(0, 95%, 100%);
     border-radius: 5px;
+    text-decoration: none;
 }
 .learnmore:hover {
     animation-name: buttonfill;
@@ -257,6 +278,9 @@ section {
     }
 }
 .close-popup {
+    background-color: transparent;
+    border: none;
+    font-size: 1.4rem;
     text-decoration: none;
     color: hsl(150, 68%, 40%);
 }

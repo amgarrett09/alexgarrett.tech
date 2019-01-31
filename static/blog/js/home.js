@@ -11,6 +11,7 @@ projectButtons.forEach((button) => {
         const popup = document.getElementById(popupId);
         popup.classList.toggle("pop-disabled");
         popup.classList.toggle("active-popup");
+        popup.setAttribute("aria-hidden", "false");
     });
 });
 
@@ -21,6 +22,7 @@ closelinks.forEach((link) => {
         const activePopup = document.querySelector(".active-popup");
         activePopup.classList.toggle("active-popup");
         activePopup.classList.toggle("pop-disabled");
+        popup.setAttribute("aria-hidden", "true");
     })
 })
 
@@ -35,3 +37,7 @@ links.forEach(link => {
         });
     }
 });
+
+// Setting focus to main content when user clicks "skip to main content"
+const skipLink = document.querySelector(".skip-to-content")
+skipLink.addEventListener("click", () => document.querySelector(".learnmore").focus())
