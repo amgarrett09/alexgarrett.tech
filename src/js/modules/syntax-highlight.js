@@ -3,8 +3,8 @@ const pyComment = /^(?:(?!\s))(#.+)/g;
 const pyStringSingle = /((?:&#39;).*?(?:&#39;))/g;
 const pyStringDouble = /((?:&quot;).*?(?:&quot;))/g;
 const pyFunction = /\b([a-z_]+[a-zA-Z_]*)(?=\()/g;
-const pyKeywords = /\b(def |lambda )/g;
-const pyControl = /\b(return |if |elif |else |while |for |try |in )/g;
+const pyKeywords = /\b(def |lambda |in |import |from )/g;
+const pyControl = /\b(return |if |elif |else |while |for |try: |except: )/g;
 const pyRegexArray = [
     [pyComment, "comment"],
     [pyStringSingle, "string"],
