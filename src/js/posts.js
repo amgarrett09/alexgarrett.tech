@@ -1,3 +1,4 @@
+require("@babel/polyfill");
 const { highlightSyntax } = require("./modules/syntax-highlight.js");
 
 // Finds all instances of '&amp;'
@@ -21,5 +22,5 @@ const highlightCode = async () => {
         const lang = "python";
         block.innerHTML = highlightSyntax(block.innerHTML, lang);
     });
-}
+};
 highlightCode();
