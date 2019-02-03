@@ -17,7 +17,7 @@ document
 
 /* syntax highlighting */
 const codeBlocks = document.querySelectorAll("pre > code");
-codeBlocks.forEach(async block => {
+codeBlocks.forEach(block => {
     const lang = "python";
     block.innerHTML = highlightSyntax(block.innerHTML, lang);
 });
