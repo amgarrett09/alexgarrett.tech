@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required
 from blog.models import Category, Post
 from blog.forms import PostForm
 from markdownx.utils import markdownify
-from blog.utils import highlight_text
 from blog.utils import html_escape
 
 def home(request):
@@ -36,7 +35,6 @@ def index(request):
 def post(request, slug):
     post = get_object_or_404(Post, slug=slug)
     post.body = markdownify(post.body)
-    post.body = highlight_text(post.body)
     categories = Category.objects.all()
     return render(request, 'blog/post.html', {'post': post, 'categories': categories})
 

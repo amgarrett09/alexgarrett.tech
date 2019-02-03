@@ -1,0 +1,27 @@
+{
+  "name": "alexgarrett.tech",
+  "version": "1.0.0",
+  "description": "personal website",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amgarrett09/alexgarrett.tech.git"
+  },
+  "author": "Alex Garrett",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amgarrett09/alexgarrett.tech/issues"
+  },
+  "homepage": "https://github.com/amgarrett09/alexgarrett.tech#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "babel-loader": "^8.0.5",
+    "jest": "^24.0.0",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1"
+  }
+}
