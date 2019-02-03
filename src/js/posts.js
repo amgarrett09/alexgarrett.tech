@@ -15,11 +15,11 @@ document
     .forEach(e => e.classList.remove("start-hidden"));
 
 /* syntax highlighting */
-const syntaxHighlight = async () => {
+const highlightCode = async () => {
     const codeBlocks = document.querySelectorAll("pre > code");
     codeBlocks.forEach(block => {
-        const lang = block.getAttribute("lang");
+        const lang = "python";
         block.innerHTML = highlightSyntax(block.innerHTML, lang);
     });
 }
-syntaxHighlight();
+highlightCode();

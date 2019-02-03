@@ -1,3 +1,4 @@
+// python highlighting
 const pyComment = /^(?:(?!\s))(#.+)/g;
 const pyStringSingle = /((?:&#39;).*?(?:&#39;))/g;
 const pyStringDouble = /((?:&quot;).*?(?:&quot;))/g;
@@ -22,7 +23,10 @@ function highlightSyntax(st, lang) {
 
     let result = st;
     langDict[lang].forEach(pair => {
-        result = result.replace(pair[0], `<span class="code-${pair[1]}">$1</span>`);
+        result = result.replace(
+            pair[0],
+            `<span class="code-${pair[1]}">$1</span>`
+        );
     });
     return result;
 }
