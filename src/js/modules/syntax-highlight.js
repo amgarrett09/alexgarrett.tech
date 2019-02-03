@@ -1,4 +1,4 @@
-const pyComment = /(?<!\S)(#.+)/g;
+const pyComment = /^(?:(?!\s))(#.+)/g;
 const pyStringSingle = /((?:&#39;).*?(?:&#39;))/g;
 const pyStringDouble = /((?:&quot;).*?(?:&quot;))/g;
 const pyFunction = /\b([a-z_]+[a-zA-Z_]*)(?=\()/g;
