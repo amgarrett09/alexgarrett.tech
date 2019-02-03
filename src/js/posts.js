@@ -15,19 +15,11 @@ document
     .forEach(e => e.classList.remove("start-hidden"));
 
 /* syntax highlighting */
-const codeBlocks = document.querySelectorAll("pre > code");
-codeBlocks.forEach(block => {
-    const lang = block.getAttribute("lang");
-    block.innerHTML = highlightSyntax(block.innerHTML, lang);
-});
-
-const sleep = async () => {
-    var start = new Date().getTime();
-    for (var i = 0; i < 1e7; i++) {
-        if (new Date().getTime() - start > milliseconds) {
-            break;
-        }
-    }
+const syntaxHighlight = async () => {
+    const codeBlocks = document.querySelectorAll("pre > code");
+    codeBlocks.forEach(block => {
+        const lang = block.getAttribute("lang");
+        block.innerHTML = highlightSyntax(block.innerHTML, lang);
+    });
 }
-
-sleep(10000);
+syntaxHighlight();
