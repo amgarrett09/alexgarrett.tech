@@ -15,7 +15,7 @@ document
     .forEach(e => e.classList.remove("start-hidden"));
 
 /* syntax highlighting */
-const highlightCode = () => {
+const highlightCode = async () => {
     const codeBlocks = document.querySelectorAll("pre > code");
     codeBlocks.forEach(block => {
         const lang = "python";
