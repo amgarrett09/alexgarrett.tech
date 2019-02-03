@@ -19,4 +19,4 @@ const codeBlocks = document.querySelectorAll("pre > code");
 codeBlocks.forEach(block => {
     const lang = block.getAttribute("lang");
     block.innerHTML = highlightSyntax(block.innerHTML, lang);
-})
+});
