@@ -1,14 +1,17 @@
 // python highlighting
 const pyComment = /(#.+)/g;
 const pyStringSingle = /((?:\').*?(?:\'))/g;
-const pyStringDouble = /((?:\\").*?(?:\\"))/g;
+const pyStringDouble = /((?:\").*?(?:\"))/g;
 const pyFunction = /\b([a-z_]+[a-zA-Z_]*)(?=\()/g;
 const pyKeywords = /\b(def |lambda |in |import |from )/g;
 const pyControl = /\b(return |if |elif |else |while |for |try: |except: )/g;
+
+/* Pairs of regexes and a string to be used in a span class name. Unfortunately the order here
+matters because of quirks in how innerHTML works. Double-quote strings must be first */
 const pyRegexArray = [
+    [pyStringDouble, "string"],
     [pyComment, "comment"],
     [pyStringSingle, "string"],
-    [pyStringDouble, "string"],
     [pyFunction, "function"],
     [pyKeywords, "keyword"],
     [pyControl, "control"]

@@ -26,7 +26,7 @@
     </nav>
     <br>
     <br>
-    <div class="container start-hidden">
+    <div class="container">
         <div class="articles">
             {% block article_block %}
             {% endblock %}
@@ -51,10 +51,10 @@
             </div>
         </div>
     </div>
-    <footer class="start-hidden">
+    <footer>
         <br>
         <p>&copy;2018-2019 Alex Garrett</p>
     </footer>
 </body>
-<script src="{% static 'blog/js/posts.js' %}"></script>
+<script src="{% static 'blog/js/posts.js' %}" defer></script>
 </html>
