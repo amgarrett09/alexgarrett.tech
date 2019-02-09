@@ -168,6 +168,10 @@ span.code-string > * {
     color: #ce9178 !important;
 }
 
+span.code-object {
+    color: #40c3a6;
+}
+
 span.code-function {
     color: #dcdcaa;
 }
@@ -202,7 +206,7 @@ pre > code {
 @media (max-width: 770px) {
     .container {
         grid-template-columns: 1fr;
-        grid-template rows: auto 1fr;
+        grid-template-rows: auto 1fr;
         grid-template-areas:
             "main",
             "sidebar";
