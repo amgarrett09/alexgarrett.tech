@@ -1,9 +1,10 @@
 // python highlighting
-const pyComment = /(#.+)/g;
+const pyComment = /(\s#.+)/g;
+const pyMultiLineComment = /("""(?:\s.+)+""")/g;
 const pyStringSingle = /((?:\').*?(?:\'))/g;
 const pyStringDouble = /((?:\").*?(?:\"))/g;
 const pyFunction = /\b([a-z_]+[a-zA-Z_]*)(?=\()/g;
-const pyKeywords = /\b(def |lambda |in |import |from )/g;
+const pyKeywords = /\b(def |lambda |in |import |from |class )/g;
 const pyControl = /\b(return |if |elif |else |while |for |try:|except | except:)/g;
 const pyObject = /\b([A-Z]+[a-zA-Z]+)(?=(?:\(|\.|:|\n))/g;
 
