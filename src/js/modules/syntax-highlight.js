@@ -8,8 +8,9 @@ const pyKeywords = /\b(def |lambda |in |import |from |class )/g;
 const pyControl = /\b(return |if |elif |else |while |for |try:|except | except:)/g;
 const pyObject = /\b([A-Z]+[a-zA-Z]+)(?=(?:\(|\.|:|\n))/g;
 
-/* Pairs of regexes and a string to be used in a span class name. Unfortunately the order here
-matters because of quirks in how innerHTML works. Double-quote strings must be first */
+/* Pairs of regexes and a string to be used in a span class name. 
+Unfortunately the order here matters because of quirks in how innerHTML works. 
+Double-quote strings must be first */
 const pyRegexArray = [
     [pyStringDouble, "string"],
     [pyComment, "comment"],
