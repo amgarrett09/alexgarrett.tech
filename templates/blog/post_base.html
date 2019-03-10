@@ -11,6 +11,7 @@
     {% load static %}
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'blog/css/posts.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/vs2015.css' %}">
 </head>
 <body>
     <header>
@@ -56,5 +57,7 @@
         <p>&copy;2018-2019 Alex Garrett</p>
     </footer>
 </body>
-<script src="{% static 'blog/js/posts.js' %}" defer></script>
+<script src="{% static 'blog/js/posts.js' %}"></script>
+<script src="{% static 'blog/js/highlight.pack.js' %}"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </html>
