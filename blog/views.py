@@ -1,13 +1,17 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
 from blog.models import Category, Post
-from blog.forms import PostForm
+from blog.forms import PostForm, EmailForm
 from markdownx.utils import markdownify
 from blog.utils import html_escape
 
+
 def home(request):
     return render(request, 'blog/home.html')
+
 
 def index(request):
     post_list = Post.objects.filter(published=True)
@@ -32,11 +36,13 @@ def index(request):
         {'posts': posts, 'categories': categories}
     )
 
+
 def post(request, slug):
     post = get_object_or_404(Post, slug=slug)
     post.body = markdownify(post.body)
     categories = Category.objects.all()
     return render(request, 'blog/post.html', {'post': post, 'categories': categories})
+
 
 @login_required(login_url='/admin/login/')
 def dashboard(request):
@@ -53,7 +59,7 @@ def dashboard(request):
     except PageNotAnInteger:
         published_posts = post_paginator.page(1)
     except EmptyPage:
-        published_posts  = post_paginator.page(post_paginator.num_pages)
+        published_posts = post_paginator.page(post_paginator.num_pages)
 
     try:
         drafts = draft_paginator.page(draft_page)
@@ -64,8 +70,9 @@ def dashboard(request):
 
     return render(
         request, 'blog/dashboard.html',
-        {'published_posts':published_posts, 'drafts':drafts}
+        {'published_posts': published_posts, 'drafts': drafts}
     )
+
 
 @login_required(login_url='/admin/login/')
 def compose(request):
@@ -84,10 +91,10 @@ def compose(request):
             description = html_escape(description)
 
             post = Post(
-                        title=title, slug=slug,
-                        category=category, body=body,
-                        description=description
-                   )
+                title=title, slug=slug,
+                category=category, body=body,
+                description=description
+            )
             post.save()
 
             return redirect('blog-dashboard')
@@ -95,7 +102,8 @@ def compose(request):
     else:
         form = PostForm()
 
-    return render(request, 'blog/compose.html', {'form':form})
+    return render(request, 'blog/compose.html', {'form': form})
+
 
 @login_required(login_url='/admin/login/')
 def edit(request, slug):
@@ -127,6 +135,7 @@ def edit(request, slug):
 
     return render(request, 'blog/edit.html', {'form': form})
 
+
 @login_required(login_url='/admin/login/')
 def publish(request, slug):
     post = get_object_or_404(Post, slug=slug)
@@ -138,6 +147,7 @@ def publish(request, slug):
         post.body = markdownify(post.body)
         return render(request, 'blog/publish.html', {'post': post})
 
+
 def category(request, category):
     category = get_object_or_404(Category, slug=category)
     posts = category.post.filter(published=True)
@@ -147,3 +157,28 @@ def category(request, category):
     categories = Category.objects.all()
 
     return render(request, 'blog/category.html', {'category': category, 'posts': posts, 'categories': categories})
+
+# Email contact page
+def email(request):
+    if request.method == 'POST':
+        form = EmailForm(request.POST)
+        if form.is_valid():
+            sender = form.cleaned_data['sender']
+            subject = form.cleaned_data['subject']
+            body = form.cleaned_data['body']
+
+            try:
+                send_mail(
+                    subject, body, sender, ['agarrettR8@gmail.com'],
+                    fail_silently=False,
+                )
+            except BadHeaderError:
+                return HttpResponse('Invalid Header!')
+            return redirect('email-success')
+    else:
+        form = EmailForm()
+    return render(request, 'blog/email.html', {'form': form})
+
+# Successs page after sending email
+def email_success(request):
+    return render(request, 'blog/email-success.html')
