@@ -7,6 +7,6 @@ class PostForm(forms.ModelForm):
         fields = ['title', 'slug', 'category', 'body', 'description']
 
 class EmailForm(forms.Form):
-    sender = forms.EmailField(required=True)
+    your_email = forms.EmailField(required=True)
     subject = forms.CharField(required=True)
     body = forms.CharField(widget=forms.Textarea, required=True)

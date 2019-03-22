@@ -163,7 +163,7 @@ def email(request):
     if request.method == 'POST':
         form = EmailForm(request.POST)
         if form.is_valid():
-            sender = form.cleaned_data['sender']
+            sender = form.cleaned_data['your_email']
             subject = form.cleaned_data['subject']
             body = form.cleaned_data['body']
 
