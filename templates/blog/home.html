@@ -79,6 +79,30 @@
           <div class="projectbox">
             <div class="projectimage">
               <img
+                src="/static/blog/images/projects/hockey_scrub_thumbnail.png"
+                alt="Hockey Scrub thumbnail"
+              />
+            </div>
+            <h3>Hockey Scrub</h3>
+            <p>
+              An NHL player stat tracking app built using Next.js and React.
+              Implements a fast autocompletion algorithm for search, and clean,
+              easy-to-read UI design.
+            </p>
+            <div style="text-align:center">
+              <button
+                aria-haspopup="true"
+                class="projectdetail"
+                id="hockey-scrub-button"
+              >
+                <strong>Learn More</strong>
+              </button>
+            </div>
+          </div>
+
+          <div class="projectbox">
+            <div class="projectimage">
+              <img
                 src="/static/blog/images/projects/blog_thumbnail.png"
                 alt="Blog thumbnail"
               />
@@ -86,7 +110,8 @@
             <h3>alexgarrett.tech</h3>
             <p>
               My personal website, built with Python and Django. Includes CRUD
-              functionality and interaction with a SQL database.
+              functionality and interaction with a SQL database, along with
+              robust form validation and HTML/JavaScript escaping.
             </p>
             <div style="text-align:center">
               <button
@@ -109,9 +134,10 @@
             <h3>Audible Sights</h3>
             <p>
               A web app which converts images to sound in a way that conveys
-              spacial information, potentially allowing users to "see" with 
+              spacial information, potentially allowing users to "see" with
               their ears.
             </p>
+            <br>
             <div style="text-align:center">
               <button
                 aria-haspopup="true"
@@ -193,30 +219,74 @@
       </div>
       <h1>Audible Sights</h1>
       <p>
-        <strong>Challenge</strong>: I was fascinated by research on neuroplasticity
-        which appeared to show that humans (and other animals) who lose their
-        sight can learn to "see" with other senses. I wanted to create a web
-        app that would illustrate how "seeing with sound" might work.
+        <strong>Challenge</strong>: I was fascinated by research on
+        neuroplasticity which appeared to show that humans (and other animals)
+        who lose their sight can learn to "see" with other senses. I wanted to
+        create a web app that would illustrate how "seeing with sound" might
+        work.
       </p>
       <p>
         <strong>Solution</strong>: I used vanilla JavaScript and the browser's
-        Web Audio API to convert images to sound. Image luminocity data is
-        converted into gain values which are fed to numerous Web Audio oscillators.
-        The gain data is updated by scanning images left to right. I used
-        ES6 classes to make the image conversion its own module with a relatively
-        simple API, and I used Webpack to compress the JavaScript files and to
-        transpile them to an older version of JavaScript with more compatability.
+        Web Audio API to convert images to sound. Image brightness data is
+        converted into gain values which are fed to numerous Web Audio
+        oscillators. The gain data is updated by scanning images left to right.
+        I used ES6 classes to make the image conversion its own module with a
+        relatively simple API, and I used Webpack to compress the JavaScript
+        files and to transpile them to an older version of JavaScript with more
+        compatibility.
       </p>
       <p>
         <strong>Result</strong>: Audible Sights is a good proof of concept which
         shows how devices or apps which help the blind see with their ears could
         work. Users can try out the conversion on pre-set demo images, or upload
-        their own images to experience what they sound like. The API for the image
-        conversion itself is also easy-to-use and the image conversion module
-        could be easily reused if the app's features were to be expanded.
+        their own images to experience what they sound like. The API for the
+        image conversion itself is also easy-to-use and the image conversion
+        module could be easily reused if the app's features were to be expanded.
       </p>
       <div style="text-align:center">
         <a target="_blank" href="https://audible-sights.herokuapp.com">
+          <button class="viewproject"><strong>View Site</strong></button>
+        </a>
+      </div>
+      <br />
+      <br />
+    </div>
+
+    <div
+      class="project-popup pop-disabled"
+      aria-hidden="true"
+      id="hockey-scrub-popup"
+    >
+      <div style="text-align: right">
+        <button class="close-popup">Close</button>
+      </div>
+      <h1>Hockey Scrub</h1>
+      <p>
+        <strong>Challenge</strong>: I wanted to build a fast and easy to use
+        stat tracking app to allow users to quickly look up info about current
+        and past players in the National Hockey League, with a cleaner and more
+        pleasant experience than some other, similar applications. I also wanted
+        to implement a very fast player search with autocompletion.
+      </p>
+      <p>
+        <strong>Solution</strong>: I used the React and the Next.js framework to
+        build the UI and general app structure, and reached out to the NHL's own
+        stats API to fetch player stats. For the player search component, I
+        wrote an autocompletion library that uses a prefix trie data structure
+        for efficient generation of suggestions. The autocompletion is
+        implemented as part of a REST API, which the front-end player search
+        component fetches from.
+      </p>
+      <p>
+        <strong>Result</strong>: Hockey Scrub is an app where users can very
+        quickly and easily look up players and their stats, and the experience
+        is snappy and satisfying. The UI has minimal clutter and is quite
+        readable. The app is effective as a quick reference, and in the future I
+        want to expand the number of stats it tracks. With React's modular
+        nature, that should be pretty straightforward.
+      </p>
+      <div style="text-align:center">
+        <a target="_blank" href="https://hockey-scrub.site">
           <button class="viewproject"><strong>View Site</strong></button>
         </a>
       </div>
