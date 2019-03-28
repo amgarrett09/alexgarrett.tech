@@ -92,8 +92,36 @@
             <div style="text-align:center">
               <button
                 aria-haspopup="true"
+                aria-controls="hockey-scrub-popup"
                 class="projectdetail"
                 id="hockey-scrub-button"
+              >
+                <strong>Learn More</strong>
+              </button>
+            </div>
+          </div>
+
+          <div class="projectbox">
+            <div class="projectimage">
+              <img
+                src="/static/blog/images/projects/css-minifier-thumbnail.png"
+                alt="CSS Minifier thumbnail"
+              />
+            </div>
+            <h3>css-minifier.rs</h3>
+            <p>
+              A CLI tool for minifying CSS that can be used standalone or
+              inside a Unix-style pipeline, written in Rust.
+            </p>
+            <br>
+            <br>
+            <br>
+            <div style="text-align:center">
+              <button
+                aria-haspopup="true"
+                aria-controls="css-minifier-popup"
+                class="projectdetail"
+                id="css-minifier-button"
               >
                 <strong>Learn More</strong>
               </button>
@@ -116,6 +144,7 @@
             <div style="text-align:center">
               <button
                 aria-haspopup="true"
+                aria-controls="django-blog-popup"
                 class="projectdetail"
                 id="django-blog-button"
               >
@@ -137,10 +166,11 @@
               spacial information, potentially allowing users to "see" with
               their ears.
             </p>
-            <br>
+            <br />
             <div style="text-align:center">
               <button
                 aria-haspopup="true"
+                aria-controls="audible-sights-popup"
                 class="projectdetail"
                 id="audible-sights-button"
               >
@@ -288,6 +318,42 @@
       <div style="text-align:center">
         <a target="_blank" href="https://hockey-scrub.site">
           <button class="viewproject"><strong>View Site</strong></button>
+        </a>
+      </div>
+      <br />
+      <br />
+    </div>
+
+    <div
+      class="project-popup pop-disabled"
+      aria-hidden="true"
+      id="css-minifier-popup"
+    >
+      <div style="text-align: right">
+        <button class="close-popup">Close</button>
+      </div>
+      <h1>css-minifier.rs</h1>
+      <p>
+        <strong>Challenge</strong>: I needed a fast and pleasant-to-use CSS
+        minification tool to make my web development workflow more efficient.
+      </p>
+      <p>
+        <strong>Solution</strong>: I built my own CSS minifier CLI tool using
+        Rust and the Clap library. I implemented my own CSS parsing rules, and
+        used Clap in conjunction with my own implementation for parsing standard in
+        to build comprehensive parsing of user input.
+      </p>
+      <p>
+        <strong>Result</strong>: This CSS minification tool is super faster than
+        some common minification tools, compressing input in O(n) time (in contrast
+        to regex-based methods, for example). The interface is simple, and app can
+        minify user-specified files individually, or it can take input piped from
+        another application and minify files based on that. The latter enables
+        fast minification of large numbers of files with minimal user input.
+      </p>
+      <div style="text-align:center">
+        <a target="_blank" href="https://github.com/amgarrett09/rust-css-minifier">
+          <button class="viewproject"><strong>View On Github</strong></button>
         </a>
       </div>
       <br />

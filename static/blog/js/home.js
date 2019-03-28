@@ -1,7 +1,8 @@
 const popupDict = {
   "django-blog-button": "django-blog-popup",
   "audible-sights-button": "audible-sights-popup",
-  "hockey-scrub-button": "hockey-scrub-popup"
+  "hockey-scrub-button": "hockey-scrub-popup",
+  "css-minifier-button": "css-minifier-popup",
 };
 
 const projectButtons = document.querySelectorAll(".projectdetail");
