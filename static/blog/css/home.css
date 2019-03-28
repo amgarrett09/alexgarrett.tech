@@ -288,7 +288,7 @@ section {
 }
 
 /* media queries */
-@media (max-width: 670px) {
+@media (max-width: 860px) {
     .about > p {
         font-size: 1.8rem;
         text-align: left;
