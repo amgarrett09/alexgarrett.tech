@@ -1,6 +1,7 @@
 module.exports = {
     entry: {
-        posts: "./src/js/posts.js"
+        posts: "./src/js/posts.js",
+        home: "./src/js/home.js"
     },
     output: {
         filename: "[name].js",
