@@ -17,6 +17,8 @@ projectButtons.forEach(button => {
     popup.classList.toggle("pop-disabled");
     popup.classList.toggle("active-popup");
     popup.setAttribute("aria-hidden", "false");
+
+    projectButtons.forEach(button => button.setAttribute("disabled", ""));
   });
 });
 
@@ -28,6 +30,8 @@ closelinks.forEach(link => {
     activePopup.classList.toggle("active-popup");
     activePopup.classList.toggle("pop-disabled");
     activePopup.setAttribute("aria-hidden", "true");
+
+    projectButtons.forEach(button => button.removeAttribute("disabled"));
   });
 });
 
