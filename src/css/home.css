@@ -263,6 +263,7 @@ section {
     font-family: 'Railway', sans-serif;
     font-size: 1.7rem;
     padding: 5px 20px 5px 20px;
+    color: black;
 }
 .pop-disabled {
     display: none;
