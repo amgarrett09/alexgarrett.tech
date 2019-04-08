@@ -20,7 +20,7 @@ img {
 header {
     height: 200px;
     margin: 0;
-    background-color: hsl(150, 64%, 45%);
+    background-color: hsl(150, 64%, 35%);
     color: hsl(0, 0%, 95%);
     font-family: 'Poppins', sans-serif;
     text-align: center;
@@ -114,14 +114,14 @@ article > h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    background-color: hsl(150, 64%, 40%);
+    background-color: hsl(150, 64%, 30%);
     color: hsl(0, 0%, 95%);
-    border: 3px solid hsl(150, 64%, 40%);
+    border: 3px solid hsl(150, 64%, 30%);
     border-radius: 5px;
 }
 .readmore:hover {
-    background-color: hsl(150, 64%, 45%);
-    border: 3px solid hsl(150, 64%, 45%);
+    background-color: hsl(150, 64%, 35%);
+    border: 3px solid hsl(150, 64%, 35%);
 }
 
 .pagination {
