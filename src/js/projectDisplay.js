@@ -48,7 +48,7 @@ Vue.component("ProjectPopup", {
       <div style="text-align: center">
         <a target="_blank" :href="content.link">
           <button class="viewproject">
-            <strong>View Site</strong>
+            <strong>{{ content.buttonText }}</strong>
           </button>
         </a>
       </div>
@@ -71,7 +71,7 @@ Vue.component("ProjectPopup", {
       type: Object,
       required: true,
       default: {}
-    }
+    },
   },
   computed: {
     hidden() {
@@ -116,7 +116,7 @@ const app = new Vue({
           easy-to-read UI design.`,
         image: "/static/blog/images/projects/hockey_scrub_thumbnail.png",
         imageAlt: "Hockey Scrub",
-        popupId: "hockey-scrub-popup"
+        popupId: "hockey-scrub-popup",
       },
       {
         id: 1,
@@ -125,7 +125,7 @@ const app = new Vue({
           standalone or inside a Unix-style pipeline, written in Rust.`,
         image: "/static/blog/images/projects/css-minifier-thumbnail.png",
         imageAlt: "css-minifier.rs",
-        popupId: "css-minifier-popup"
+        popupId: "css-minifier-popup",
       },
       {
         id: 2,
@@ -135,7 +135,7 @@ const app = new Vue({
           along with robust form validation and HTML/JavaScript escaping.`,
         image: "/static/blog/images/projects/blog_thumbnail.png",
         imageAlt: "Blog",
-        popupId: "blog-popup"
+        popupId: "blog-popup",
       },
       {
         id: 3,
@@ -177,7 +177,8 @@ const app = new Vue({
           want to expand the number of stats it tracks. With React's modular
           nature, that should be pretty straightforward.
         `,
-        link: "https://hockey-scrub.site"
+        link: "https://hockey-scrub.site",
+        buttonText: "View Site"
       },
       {
         id: "css-minifier-popup",
@@ -200,7 +201,8 @@ const app = new Vue({
           another application and minify files based on that. The latter enables
           fast minification of large numbers of files with minimal user input.
         `,
-        link: "https://github.com/amgarrett09/rust-css-minifier"
+        link: "https://github.com/amgarrett09/rust-css-minifier",
+        buttonText: "View on Github"
       },
       {
         id: "blog-popup",
@@ -226,7 +228,8 @@ const app = new Vue({
           process of building it I also became quite familiar with Django and
           Python.
         `,
-        link: "https://www.alexgarrett.tech/blog/"
+        link: "https://www.alexgarrett.tech/blog/",
+        buttonText: "View Blog"
       },
       {
         id: "audible-sights-popup",
@@ -256,7 +259,8 @@ const app = new Vue({
           image conversion itself is also easy-to-use and the image conversion
           module could be easily reused if the app's features were to be expanded.
         `,
-        link: "https://audible-sights.herokuapp.com"
+        link: "https://audible-sights.herokuapp.com",
+        buttonText: "View Site"
       }
     ]
   }
