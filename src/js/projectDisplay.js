@@ -38,7 +38,9 @@ Vue.component("ProjectPopup", {
       :aria-hidden="hidden"
     >
       <div style="text-align: right">
-        <button class="close-popup" @click="closePopup">Close</button>
+        <button class="close-popup" @click="closePopup">
+          <strong>Close</strong>
+        </button>
       </div>
 
       <h1>{{ content.title }}</h1>
