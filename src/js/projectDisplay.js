@@ -32,10 +32,15 @@ Vue.component("ProjectBox", {
 
 Vue.component("ProjectPopup", {
   template: `
-    <div
+  <div class="popup-wrapper" 
+    :class="{ 'pop-disabled': hidden }"
+    @click="closePopup"
+  >
+   <div
       class="project-popup"
       :class="{ 'pop-disabled': hidden, 'active-popup': !hidden }"
       :aria-hidden="hidden"
+      @click.stop
     >
       <div style="text-align: right">
         <button class="close-popup" @click="closePopup">
@@ -57,6 +62,7 @@ Vue.component("ProjectPopup", {
       <br>
       <br>
     </div>
+  </div>
   `,
   methods: {
     closePopup() {
@@ -73,7 +79,7 @@ Vue.component("ProjectPopup", {
       type: Object,
       required: true,
       default: {}
-    },
+    }
   },
   computed: {
     hidden() {
@@ -118,7 +124,7 @@ const app = new Vue({
           easy-to-read UI design.`,
         image: "/static/blog/images/projects/hockey_scrub_thumbnail.png",
         imageAlt: "Hockey Scrub",
-        popupId: "hockey-scrub-popup",
+        popupId: "hockey-scrub-popup"
       },
       {
         id: 1,
@@ -127,7 +133,7 @@ const app = new Vue({
           standalone or inside a Unix-style pipeline, written in Rust.`,
         image: "/static/blog/images/projects/css-minifier-thumbnail.png",
         imageAlt: "css-minifier.rs",
-        popupId: "css-minifier-popup",
+        popupId: "css-minifier-popup"
       },
       {
         id: 2,
@@ -137,7 +143,7 @@ const app = new Vue({
           along with robust form validation and HTML/JavaScript escaping.`,
         image: "/static/blog/images/projects/blog_thumbnail.png",
         imageAlt: "Blog",
-        popupId: "blog-popup",
+        popupId: "blog-popup"
       },
       {
         id: 3,
@@ -196,7 +202,7 @@ const app = new Vue({
           to build comprehensive parsing of user input.
         `,
         result: `
-          This CSS minification tool is super faster than
+          This CSS minification tool is considerably faster than
           some common minification tools, compressing input in O(n) time (in contrast
           to regex-based methods, for example). The interface is simple, and app can
           minify user-specified files individually, or it can take input piped from

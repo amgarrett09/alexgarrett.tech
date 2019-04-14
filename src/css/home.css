@@ -250,7 +250,7 @@ section {
 
 /* popups */
 .project-popup {
-    position: fixed;
+    position: relative;
     top: 40px;
     left: 18vw;
     z-index: 100;
@@ -288,6 +288,15 @@ section {
     font-size: 1.4rem;
     text-decoration: none;
     color: hsl(150, 68%, 30%);
+}
+
+.popup-wrapper {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 /* media queries */
