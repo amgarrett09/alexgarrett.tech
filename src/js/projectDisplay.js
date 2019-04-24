@@ -6,7 +6,7 @@ Vue.component("ProjectBox", {
         <img :src="project.image" :alt="project.imageAlt" />
       </div>
       <p>{{ project.description }}</p>
-      <div style="text-align: center;">
+      <div class="projectbox__button-container">
         <button 
           class="projectdetail"
           @click.prevent="openPopup"
