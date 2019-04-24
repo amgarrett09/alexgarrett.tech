@@ -241,6 +241,9 @@ section {
 }
 .contactlink {
     text-decoration: none;
+    display: inline-block;
+    height: 25px;
+    font-size: 1.8rem;
     color: hsl(0, 0%, 95%);
 }
 .contactlink:hover {
