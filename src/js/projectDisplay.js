@@ -118,6 +118,15 @@ const app = new Vue({
     projects: [
       {
         id: 0,
+        title: "Date Designer",
+        description: `A convenient date-planning app that allows users to search for points of interest in their area,
+          see / report their accessibility, build an itinerary, and share ideas with their date. Built with Vue.`,
+        image: "/static/blog/images/projects/date_designer_thumbnail.png",
+        imageAlt: "Date Designer",
+        popupId: "date-designer-popup"
+      },
+      {
+        id: 1,
         title: "Hockey Scrub",
         description: `An NHL player stat tracking app built using Next.js and React. 
           Implements a fast autocompletion algorithm for search, and clean, 
@@ -127,7 +136,7 @@ const app = new Vue({
         popupId: "hockey-scrub-popup"
       },
       {
-        id: 1,
+        id: 2,
         title: "css-minifier.rs",
         description: `A CLI tool for minifying css that can be used
           standalone or inside a Unix-style pipeline, written in Rust.`,
@@ -136,7 +145,7 @@ const app = new Vue({
         popupId: "css-minifier-popup"
       },
       {
-        id: 2,
+        id: 3,
         title: "alexgarrett.tech",
         description: `My personal website, built with Python and Django.
           Includes CRUD functionality and interaction with a SQL database,
@@ -146,7 +155,7 @@ const app = new Vue({
         popupId: "blog-popup"
       },
       {
-        id: 3,
+        id: 4,
         title: "Audible Sights",
         description: `A web app which converts images to sound in a way that
           conveys spatial information, potentially allowing users to "see"
@@ -158,6 +167,35 @@ const app = new Vue({
     ],
     activePopup: "",
     popups: [
+      {
+        id: "date-designer-popup",
+        title: "Date Designer",
+        challenge: `
+          One of the hardest parts about dating is figuring out what to do! I wanted to
+          create an app that would make it really easy to find fun places to take your
+          significant other(s). Moreover, accessibility is important to me, so I wanted
+          to do something not a lot of other apps do: report whether locations have
+          gender-neutral bathrooms, and whether they are wheelchair accessible, right up front.
+          Frankly, it really blows if you're on a date and you can't pee, and some people need
+          particular kinds of facilities. My goal was to make an app that helps you find them.
+        `,
+        solution: `
+          I used Vue and Nuxt.js to create a progressive, native-feeling web application. On the back-end,
+          I built an API using Node which combines data from the Google Maps API, along with my own data,
+          to serve information about locations on the front-end. I wrote custom SQL transactions
+          to be able to efficiently and reliably handle large numbers of location records. On the front-end,
+          I used Vuex (similar to Redux) to make it seamless for users to add ideas they like to a shortlist,
+          and to build an itinerary out of them. Users can then share links to the schedules they build. 
+        `,
+        result: `
+          I'm really happy with how this project turned out. The app provides users a convenient experience
+          and really simplifies the search process when planning dates, consolidating a lot of information in
+          one place. The back-end is also robust, going beyond what most ORMs can do and providing mechanisms
+          to handle large database updates, while avoiding data races. 
+        `,
+        link: "https://github.com/amgarrett09/DateDesigner",
+        buttonText: "View on Github"
+      },
       {
         id: "hockey-scrub-popup",
         title: "Hockey Scrub",
