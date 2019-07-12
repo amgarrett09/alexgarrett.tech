@@ -193,8 +193,8 @@ const app = new Vue({
           one place. The back-end is also robust, going beyond what most ORMs can do and providing mechanisms
           to handle large database updates, while avoiding data races. 
         `,
-        link: "https://github.com/amgarrett09/DateDesigner",
-        buttonText: "View on Github"
+        link: "https://date-designer.com",
+        buttonText: "View Site"
       },
       {
         id: "hockey-scrub-popup",
