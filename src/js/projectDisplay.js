@@ -171,21 +171,27 @@ const app = new Vue({
         id: "date-designer-popup",
         title: "Date Designer",
         challenge: `
-          One of the hardest parts about dating is figuring out what to do! I wanted to
-          create an app that would make it really easy to find fun places to take your
-          significant other(s). Moreover, accessibility is important to me, so I wanted
-          to do something not a lot of other apps do: report whether locations have
-          gender-neutral bathrooms, and whether they are wheelchair accessible, right up front.
-          Frankly, it really blows if you're on a date and you can't pee, and some people need
-          particular kinds of facilities. My goal was to make an app that helps you find them.
+          One of the hardest parts about dating is figuring out what to do! 
+          I was tasked with creating an app that would make it really easy to find 
+          fun places to take your significant other(s). Moreover, accessibility is 
+          important to me, so I wanted to do something not a lot of other apps do: 
+          help people find date locations that are wheelchair accessible, and/or 
+          have gender-neutral facilities. Frankly, it really blows if you're on a 
+          date and you can't pee, and some people need particular kinds of facilities. 
+          My goal was to make a date-planning app that's easy for everyone to use, and 
+          additionally provides value to users who don't often have their needs addressed 
+          by other apps.
         `,
         solution: `
-          I used Vue and Nuxt.js to create a progressive, native-feeling web application. On the back-end,
-          I built an API using Node which combines data from the Google Maps API, along with my own data,
-          to serve information about locations on the front-end. I wrote custom SQL transactions
-          to be able to efficiently and reliably handle large numbers of location records. On the front-end,
-          I used Vuex (similar to Redux) to make it seamless for users to add ideas they like to a shortlist,
-          and to build an itinerary out of them. Users can then share links to the schedules they build. 
+        I used Vue and Nuxt.js to create a progressive, native-feeling web application. 
+        On the back-end, I built an API using Node which combines data from the Google 
+        Maps API, along with my own data, to serve information about locations on the 
+        front-end. I wrote custom SQL transactions to be able to efficiently and reliably 
+        handle large numbers of location records. On the front-end, I used Vuex 
+        (similar to Redux) to make it seamless for users to add ideas they like to a 
+        shortlist, and to build an itinerary out of them. I also implemented a reporting 
+        system, where users can see and report whether establishments have accessible 
+        facilities.
         `,
         result: `
           I'm really happy with how this project turned out. The app provides users a convenient experience
